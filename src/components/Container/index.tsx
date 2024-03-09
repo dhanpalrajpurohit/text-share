@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Box, Grid, TextField, Button, FormControl } from '@mui/material';
 import QRCode from "react-qr-code";
 import { styled } from '@mui/material/styles';
@@ -33,7 +33,7 @@ function Container() {
     },
   }));
 
-  const Backdrop = styled('div')(({ theme }) => ({
+  const Backdrop = styled('div')(() => ({
     backdropFilter: 'blur(5px)',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     position: 'fixed',
