@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { Box, Grid, TextField, Button, FormControl, Typography, Link } from '@mui/material';
+import { Box, Grid, TextField, Button, FormControl, Typography } from '@mui/material';
 import QRCode from "react-qr-code";
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
@@ -152,11 +152,7 @@ function Container() {
             </BootstrapDialog>
           </Backdrop>
         )}
-        <Link href="https://twitter.com/DhanpalRaj1998" underline="none">
-          Made By Dhanpal
-        </Link>
       </Grid>
-
     </div>
   );
 }
