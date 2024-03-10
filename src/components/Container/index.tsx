@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { Box, Grid, TextField, Button, FormControl } from '@mui/material';
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { Box, Grid, TextField, Button, FormControl, Typography, Link } from '@mui/material';
 import QRCode from "react-qr-code";
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
@@ -10,6 +12,10 @@ import CloseIcon from '@mui/icons-material/Close';
 
 
 function Container() {
+  const theme = useTheme();
+  const large = useMediaQuery(theme.breakpoints.up("lg"));
+  const medium = useMediaQuery(theme.breakpoints.up("md"));
+
   const [value, setValue] = useState("hello world");
   const [modalVisible, setModalVisible] = useState(false);
   const [qrValue, setQrValue] = useState('');
@@ -49,7 +55,7 @@ function Container() {
 
 
   return (
-    <div style={{backgroundColor:'#e6f6fe'}}>
+    <div style={{ backgroundColor: '#e6f6fe', overflowY: 'hidden' }}>
       <Grid
         container
         spacing={0}
@@ -58,10 +64,14 @@ function Container() {
         justifyContent="center"
         style={{ minHeight: '100vh' }}
       >
-        <Grid item xs={12} sm={6} md={6}>
-          <img src="https://png.pngtree.com/png-clipart/20230825/original/pngtree-software-developers-and-programmers-at-work-picture-image_8689569.png" alt="Your Image" style={{ width: '100%', height: '100%' }} />
-        </Grid>
-       
+        {
+          (medium || large) &&
+          <Grid item xs={12} sm={6} md={6}>
+            <img src="https://png.pngtree.com/png-clipart/20230825/original/pngtree-software-developers-and-programmers-at-work-picture-image_8689569.png" alt="Your Image" style={{ width: '100%', height: '100%' }} />
+          </Grid>
+        }
+
+
         <Grid item xs={12} sm={6} md={6}>
           <Box
             sx={{
@@ -70,6 +80,9 @@ function Container() {
               maxWidth: '100%',
             }}
           >
+            <span style={{ display: 'flex' }}><Typography variant='h4' component='h4'><b>Text Share</b></Typography>
+              <img src="https://cdn.icon-icons.com/icons2/2018/PNG/512/friends_link_send_share_icon_123609.png" width='40' height='40' />
+            </span>
             <FormControl
               sx={{
                 width: 1000,
@@ -96,7 +109,7 @@ function Container() {
                   variant="contained"
                   color="primary"
                   onClick={handleClickEvent}
-                  sx={{ marginRight: 0, backgroundColor:'#f88a50' }}
+                  sx={{ marginRight: 0, backgroundColor: '#f88a50' }}
                 >
                   Generate QR Code
                 </Button>
@@ -139,8 +152,11 @@ function Container() {
             </BootstrapDialog>
           </Backdrop>
         )}
-
+        <Link href="https://twitter.com/DhanpalRaj1998" underline="none">
+          Made By Dhanpal
+        </Link>
       </Grid>
+
     </div>
   );
 }

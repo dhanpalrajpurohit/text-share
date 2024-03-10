@@ -2,6 +2,12 @@
 
 This is a basic setup for a React project using TypeScript with Vite.
 
+## Project URL:
+
+```
+https://text-share-rho.vercel.app/
+```
+
 ## Setup Instructions
 
 1. **Clone Project**
